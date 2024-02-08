@@ -10,6 +10,17 @@ const nextConfig = {
      que nos van a ser de utilidad en muchos archivos: */
     prependData: `@import "main.sass"`,
   },
+  images: {
+    /* A las imágenes que carguemos en nuestro proyecto
+    que provengan de un hostname diferente deben tener una
+    configuración previa para poder usarlas con el componente next/image: */
+    remotePatterns: [
+      {
+        hostname: 'cdn.shopify.com',
+        protocol: 'https',
+      },
+    ]
+  }
 };
 
 module.exports = nextConfig
