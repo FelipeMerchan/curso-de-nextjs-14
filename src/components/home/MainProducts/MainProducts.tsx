@@ -2,11 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 
 import styles from './MainProducts.module.sass'
-import { getProducts } from 'app/services/shopify'
+import { Product } from 'app/models/products'
 
 /* Los server component pueden ser asíncronos gracias a Next.js */
 export const MainProducts = async () => {
-  const products = await getProducts()
+  const response = await fetch('http://localhost:3000/api')
+  const { products }: { products: Product[]} = await response.json()
 
   return (
     <section className={styles.MainProducts}>
