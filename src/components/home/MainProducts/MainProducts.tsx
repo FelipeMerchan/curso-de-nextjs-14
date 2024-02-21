@@ -2,7 +2,6 @@ import React from 'react'
 import Image from 'next/image'
 
 import styles from './MainProducts.module.sass'
-import { Product } from 'app/models/products'
 
 /* Los server component pueden ser asíncronos gracias a Next.js */
 export const MainProducts = async () => {

@@ -1,3 +1,6 @@
+import { ProductsWrapper } from "app/components/store/ProductsWrapper"
+import { getProducts } from "app/services/shopify"
+
 interface CategoryProps {
   params: {
     categories: string[]
@@ -8,8 +11,10 @@ interface CategoryProps {
 /* Dynamic Segments (las urls de las páginas que son dinámicas en el navegador,
   por ejemplo juegos de mesa: '/store/juegos-de-mesa') are passed as the params
   prop to layout, page, route, and generateMetadata functions: */
-export default function Category({ params }: CategoryProps) {
+export default async function Category({ params }: CategoryProps) {
+  const products = await getProducts()
+
   return (
-    <h1>Categoría {params.categories}</h1>
+    <ProductsWrapper products={products} />
   )
 }

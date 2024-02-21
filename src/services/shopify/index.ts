@@ -1,8 +1,7 @@
 import { shopifyUrls } from "./urls"
 import { env } from "app/config/env"
-import { Product } from "app/models/products"
 
-export const getProducts = async (): Promise<Product[] | undefined> => {
+export const getProducts = async (): Promise<ProductType[] | undefined> => {
   try {
     const response = await fetch(shopifyUrls.products.all, {
       headers: {
