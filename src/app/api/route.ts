@@ -1,4 +1,4 @@
-import { getProducts } from "app/services/shopify"
+import { getProducts } from "app/services/shopify/products"
 
 /* EL nombre de la función debe tener el
 tipo de petición HTTP que vamos a utilizar: */
