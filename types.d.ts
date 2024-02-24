@@ -9,12 +9,14 @@ interface ErrorPageProps {
 }
 
 type ProductType = {
-  id: string;
-  title: string;
-  price: number;
-  image: string;
-  quantity: number;
+  description: string
   handle: string;
+  id: string;
+  image: string;
+  price: number;
+  quantity: number;
+  tags: string;
+  title: string;
 }
 
 interface GetProductsResponse {
