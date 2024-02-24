@@ -1,5 +1,6 @@
-import { getCollections } from "app/services/shopify/collections"
 import Link from "next/link"
+
+import { getCollections } from "app/services/shopify/collections"
 
 export default async function Layout({ children }: { children: React.ReactNode}) {
   const collections = await getCollections()

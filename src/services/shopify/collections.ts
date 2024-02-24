@@ -23,3 +23,18 @@ export const getCollections = async (): Promise<any[] | undefined> => {
     console.log('Manejar este error')
   }
 }
+
+export const getCollectionProducts = async (id: string): Promise<ProductType[] | undefined> => {
+  try {
+    const response = await fetch(shopifyUrls.collections.products(id), {
+      headers: {
+        'X-Shopify-Access-Token': env.SHOPIFY_TOKEN,
+      }
+    })
+    const { products } = await response.json()
+
+    return products
+  } catch (error) {
+    console.log('Manejar este error')
+  }
+}
