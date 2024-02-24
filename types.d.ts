@@ -9,7 +9,8 @@ interface ErrorPageProps {
 }
 
 type ProductType = {
-  description: string
+  description: string;
+  gqlId: string;
   handle: string;
   id: string;
   image: string;
