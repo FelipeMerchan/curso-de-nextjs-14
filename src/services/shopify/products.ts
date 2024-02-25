@@ -28,3 +28,15 @@ export const getProducts = async (id?: string): Promise<ProductType[] | undefine
     console.log('Manejar este error')
   }
 }
+
+export const getMainProducts = async () => {
+  const response = await fetch(shopifyUrls.products.mainProducts, {
+    headers: new Headers({
+      'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
+    })
+  })
+
+  const {products} = await response.json()
+
+  return products
+}

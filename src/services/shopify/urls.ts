@@ -9,5 +9,6 @@ export const shopifyUrls = {
   },
   products: {
     all: `${env.SHOPIFY_HOSTNAME}/admin/api/2023-10/products.json`,
+    mainProducts: `${env.SHOPIFY_HOSTNAME}/admin/api/2023-10/collections/428795691232/products.json`,
   },
 }
