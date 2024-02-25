@@ -29,14 +29,19 @@ export const getProducts = async (id?: string): Promise<ProductType[] | undefine
   }
 }
 
-export const getMainProducts = async () => {
+export const getMainProducts = async (): Promise<Product[] | undefined> => {
   const response = await fetch(shopifyUrls.products.mainProducts, {
     headers: new Headers({
       'X-Shopify-Access-Token': env.SHOPIFY_TOKEN
-    })
+    }),
+    /* Crear tag que será usada para identificar esta request
+    al momento de querer revalidar la caché de la misma: */
+    next: {
+      tags: ['main-products'],
+    }
   })
 
-  const {products} = await response.json()
+  const { products } = await response.json()
 
   return products
 }
