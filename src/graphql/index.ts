@@ -1,4 +1,5 @@
 import { GraphQLClient } from 'graphql-request';
+
 import { env } from 'app/config/env';
 
 export class GraphQLClientSingleton {
