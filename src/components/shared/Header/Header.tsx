@@ -7,7 +7,7 @@ export const Header = async () => {
   const customer = await validateAccessToken()
 
   return (
-    <header>
+    <header className={styles.Header}>
       <nav>
         <ul className={styles.Header__list}>
           <li>
@@ -20,11 +20,11 @@ export const Header = async () => {
               Tienda
             </Link>
           </li>
-          <li>
-            {customer?.firstName ? (<span>Hola, {customer?.firstName}</span>) : (<Link href='/login'>Login</Link>)}
-          </li>
         </ul>
       </nav>
+      <div className={styles.Header__user}>
+        {customer?.firstName ? (<p>Hola! {customer.firstName}</p>) : (<Link href="/login">Login</Link>)}
+      </div>
     </header>
   )
 }
