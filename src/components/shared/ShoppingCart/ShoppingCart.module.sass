@@ -1,0 +1,23 @@
+.ShoppingCart
+  position: relative
+  border: none
+  color: $text-color
+  background-color: transparent
+  cursor: pointer
+  &__counter
+    position: absolute
+    top: -10px
+    right: -4px
+    z-index: 1
+    display: inline-block
+    width: 16px
+    height: 16px
+    font-size: 12px
+    line-height: 1.5
+    text-align: center
+    border-radius: 50%
+    background-color: $main-contrast
+  & > svg
+    width: 20px
+    height: 20px
+    fill: $text-color
