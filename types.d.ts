@@ -152,8 +152,10 @@ interface Rule {
 }
 
 type CartItem = {
-  title: string;
+  id: string;
+  image: string;
+  merchandiseId: string;
   price: number;
   quantity: number;
-  id: string;
+  title: string;
 }
