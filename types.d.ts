@@ -150,3 +150,10 @@ interface Rule {
   relation:  string;
   condition: string;
 }
+
+type CartItem = {
+  title: string;
+  price: number;
+  quantity: number;
+  id: string;
+}
