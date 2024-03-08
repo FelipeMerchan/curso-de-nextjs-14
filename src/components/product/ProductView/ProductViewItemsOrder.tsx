@@ -20,8 +20,8 @@ export const ProductViewItemsOrder = ({ maxQuantity, product }: ProductViewItems
     event.preventDefault();
     addToCart({
       ...product,
-      quantity: counter,
       merchandiseId: product.gqlId,
+      quantity: counter,
     });
   };
 
