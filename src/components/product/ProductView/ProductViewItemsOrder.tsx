@@ -21,6 +21,7 @@ export const ProductViewItemsOrder = ({ maxQuantity, product }: ProductViewItems
     addToCart({
       ...product,
       quantity: counter,
+      merchandiseId: product.gqlId,
     });
   };
 

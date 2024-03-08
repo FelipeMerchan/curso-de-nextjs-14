@@ -1,8 +1,17 @@
 import Link from "next/link"
+import dynamic from 'next/dynamic'
 
 import { validateAccessToken } from "app/utils/auth/validateAccessToken"
 import styles from './Header.module.sass'
-import { ShoppingCart } from "../ShoppingCart"
+
+const NoSSRShoppingCart = dynamic(() =>
+  import('../ShoppingCart').then((mod) => mod.ShoppingCart),
+  {
+    /* Indica que no queremos que el componente tenga Server
+    Side Render: */
+    ssr: false,
+  }
+)
 
 export const Header = async () => {
   const customer = await validateAccessToken()
@@ -25,7 +34,7 @@ export const Header = async () => {
       </nav>
       <div className={styles.Header__user}>
         {customer?.firstName ? (<p>Hola! {customer.firstName}</p>) : (<Link href="/login">Login</Link>)}
-        <ShoppingCart />
+        <NoSSRShoppingCart />
       </div>
     </header>
   )

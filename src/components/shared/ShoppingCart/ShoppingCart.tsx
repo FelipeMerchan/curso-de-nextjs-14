@@ -5,8 +5,9 @@ import { useShoppingCart } from "app/hooks/useShoppingCart"
 import styles from './ShoppingCart.module.sass'
 import { useMemo, useState } from "react"
 import { ShoppingCartItem } from "./ShoppingCartItem"
+import { handleCreateCart } from "app/actions"
 
-export const ShoppingCart = () => {
+export default function ShoppingCart() {
   const [isOpen, setIsOpen] = useState(false)
   const { cart } = useShoppingCart()
   const [isBuying, setIsBuying] = useState(false);
@@ -15,6 +16,22 @@ export const ShoppingCart = () => {
   const handleOpen = () => {
     if (hasItems) {
       setIsOpen(prevState => !prevState)
+    }
+  }
+
+  const handleBuy = async () => {
+    try {
+      setIsBuying(true)
+      const checkoutUrl = await handleCreateCart(cart)
+
+      if (!checkoutUrl) throw new Error('Error creating checkout')
+
+      localStorage.removeItem('cart')
+      window.location.href = checkoutUrl
+    } catch (error) {
+
+    } finally {
+      setIsBuying(false)
     }
   }
 
@@ -35,7 +52,7 @@ export const ShoppingCart = () => {
           {
             cart.map(item => (<ShoppingCartItem key={item.id} item={item} />))
           }
-          <button className={styles.ShoppingCart__buyButton} disabled={isBuying}>
+          <button className={styles.ShoppingCart__buyButton} onClick={handleBuy} disabled={isBuying}>
             Buy
           </button>
         </div>
