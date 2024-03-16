@@ -6,9 +6,9 @@ export default async function MyAccountPage() {
   return (
     <div>
       <section>
-        <h2>Your info</h2>
-        <h1>Bienvenido {customer.name}</h1>
-        <p>email: {customer.email}</p>
+        <h2>Bienvenido {customer.name}</h2>
+        <h2>Información de mi cuenta</h2>
+        <p>Correo: {customer.email}</p>
       </section>
     </div>
   );

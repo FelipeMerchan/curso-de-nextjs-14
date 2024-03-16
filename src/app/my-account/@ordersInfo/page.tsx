@@ -6,7 +6,7 @@ export default async function MyAccountPage() {
   return (
     <div>
       <section>
-        <h2>Orders</h2>
+        <h2>Órdenes</h2>
         {ordersInfo.orders?.map((order) => (
           <p key={order.orderNumber}>{order.orderNumber}</p>
         ))}

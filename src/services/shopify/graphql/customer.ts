@@ -22,6 +22,6 @@ export const getCustomerOrders = async () => {
   const orders = customer?.orders?.edges.map((edge: any) => edge.node)
   return {
     totalOrders: customer?.orders?.totalCount,
-    orders
+    orders,
   }
 }
