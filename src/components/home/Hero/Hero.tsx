@@ -6,7 +6,7 @@ export const Hero = () => {
   return (
     <section className={styles.Hero}>
       <h1>Future world</h1>
-      <h2>Empowering Your Tomorrow, Today!</h2>
+      <h2>¡Empoderando tu mañana, hoy!</h2>
     </section>
   )
 }
